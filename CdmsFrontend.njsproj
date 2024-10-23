@@ -1,0 +1,160 @@
+<Project>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{541195e3-f0c5-4b56-a429-a5fe88238be2}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".browserslistrc" />
+    <Content Include=".dockerignore" />
+    <Content Include=".DS_Store" />
+    <Content Include=".editorconfig" />
+    <Content Include=".eslintrc.cjs" />
+    <Content Include=".github\example.dependabot.yml" />
+    <Content Include=".github\workflows\check-pull-request.yml" />
+    <Content Include=".github\workflows\publish-hotfix.yml" />
+    <Content Include=".github\workflows\publish.yml" />
+    <Content Include=".gitignore" />
+    <Content Include=".git\config" />
+    <Content Include=".git\description" />
+    <Content Include=".git\HEAD" />
+    <Content Include=".git\hooks\applypatch-msg.sample" />
+    <Content Include=".git\hooks\commit-msg.sample" />
+    <Content Include=".git\hooks\fsmonitor-watchman.sample" />
+    <Content Include=".git\hooks\post-update.sample" />
+    <Content Include=".git\hooks\pre-applypatch.sample" />
+    <Content Include=".git\hooks\pre-commit.sample" />
+    <Content Include=".git\hooks\pre-merge-commit.sample" />
+    <Content Include=".git\hooks\pre-push.sample" />
+    <Content Include=".git\hooks\pre-rebase.sample" />
+    <Content Include=".git\hooks\pre-receive.sample" />
+    <Content Include=".git\hooks\prepare-commit-msg.sample" />
+    <Content Include=".git\hooks\push-to-checkout.sample" />
+    <Content Include=".git\hooks\update.sample" />
+    <Content Include=".git\index" />
+    <Content Include=".git\info\exclude" />
+    <Content Include=".git\logs\HEAD" />
+    <Content Include=".git\logs\refs\heads\main" />
+    <Content Include=".git\logs\refs\remotes\origin\HEAD" />
+    <Content Include=".git\objects\pack\pack-841f52790a5fb7ae9956778c78a9c59a83c759d2.idx" />
+    <Content Include=".git\objects\pack\pack-841f52790a5fb7ae9956778c78a9c59a83c759d2.pack" />
+    <Content Include=".git\packed-refs" />
+    <Content Include=".git\refs\heads\main" />
+    <Content Include=".git\refs\remotes\origin\HEAD" />
+    <Content Include=".husky\pre-commit" />
+    <Content Include=".idea\.idea.cdms\.idea\.gitignore" />
+    <Content Include=".idea\.idea.cdms\.idea\encodings.xml" />
+    <Content Include=".jest\setup.js" />
+    <Content Include=".npmignore" />
+    <Content Include=".npmrc" />
+    <Content Include=".nvmrc" />
+    <Content Include=".prettierignore" />
+    <Content Include=".prettierrc.js" />
+    <Content Include=".sonarlint\connectedMode.json" />
+    <Content Include="babel.config.cjs" />
+    <Content Include="compose.yml" />
+    <Content Include="compose\aws.env" />
+    <Content Include="compose\start-localstack.sh" />
+    <Content Include="Dockerfile" />
+    <Content Include="jest.config.js" />
+    <Content Include="LICENCE" />
+    <Content Include="nodemon.json" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="postcss.config.js" />
+    <Content Include="README.md" />
+    <Content Include="sonar-project.properties" />
+    <Content Include="src\client\common\helpers\.gitkeep" />
+    <Content Include="src\client\common\README.md" />
+    <Content Include="src\client\javascripts\application.js" />
+    <Content Include="src\client\stylesheets\application.scss" />
+    <Content Include="src\client\stylesheets\components\_all.scss" />
+    <Content Include="src\client\stylesheets\core\_all.scss" />
+    <Content Include="src\client\stylesheets\core\_header.scss" />
+    <Content Include="src\client\stylesheets\core\_main.scss" />
+    <Content Include="src\client\stylesheets\helpers\_all.scss" />
+    <Content Include="src\client\stylesheets\helpers\_links.scss" />
+    <Content Include="src\client\stylesheets\partials\_all.scss" />
+    <Content Include="src\client\stylesheets\partials\_navigation.scss" />
+    <Content Include="src\client\stylesheets\variables\_all.scss" />
+    <Content Include="src\client\stylesheets\variables\_colours.scss" />
+    <Content Include="src\config\config.js" />
+    <Content Include="src\config\nunjucks\context\build-navigation.js" />
+    <Content Include="src\config\nunjucks\context\build-navigation.test.js" />
+    <Content Include="src\config\nunjucks\context\context.js" />
+    <Content Include="src\config\nunjucks\context\context.test.js" />
+    <Content Include="src\config\nunjucks\filters\filters.js" />
+    <Content Include="src\config\nunjucks\filters\format-currency.js" />
+    <Content Include="src\config\nunjucks\filters\format-currency.test.js" />
+    <Content Include="src\config\nunjucks\filters\format-date.js" />
+    <Content Include="src\config\nunjucks\filters\format-date.test.js" />
+    <Content Include="src\config\nunjucks\globals.js" />
+    <Content Include="src\config\nunjucks\nunjucks.js" />
+    <Content Include="src\index.js" />
+    <Content Include="src\server\about\controller.js" />
+    <Content Include="src\server\about\controller.test.js" />
+    <Content Include="src\server\about\index.js" />
+    <Content Include="src\server\about\index.njk" />
+    <Content Include="src\server\common\components\breadcrumbs\macro.njk" />
+    <Content Include="src\server\common\components\breadcrumbs\template.njk" />
+    <Content Include="src\server\common\components\breadcrumbs\template.test.js" />
+    <Content Include="src\server\common\components\breadcrumbs\_breadcrumbs.scss" />
+    <Content Include="src\server\common\components\heading\macro.njk" />
+    <Content Include="src\server\common\components\heading\template.njk" />
+    <Content Include="src\server\common\components\heading\template.test.js" />
+    <Content Include="src\server\common\components\heading\_heading.scss" />
+    <Content Include="src\server\common\constants\status-codes.js" />
+    <Content Include="src\server\common\helpers\errors.js" />
+    <Content Include="src\server\common\helpers\errors.test.js" />
+    <Content Include="src\server\common\helpers\logging\logger-options.js" />
+    <Content Include="src\server\common\helpers\logging\logger.js" />
+    <Content Include="src\server\common\helpers\logging\request-logger.js" />
+    <Content Include="src\server\common\helpers\metrics.js" />
+    <Content Include="src\server\common\helpers\metrics.test.js" />
+    <Content Include="src\server\common\helpers\proxy.js" />
+    <Content Include="src\server\common\helpers\proxy.test.js" />
+    <Content Include="src\server\common\helpers\pulse.js" />
+    <Content Include="src\server\common\helpers\redis-client.js" />
+    <Content Include="src\server\common\helpers\redis-client.test.js" />
+    <Content Include="src\server\common\helpers\secure-context\get-trust-store-certs.js" />
+    <Content Include="src\server\common\helpers\secure-context\get-trust-store-certs.test.js" />
+    <Content Include="src\server\common\helpers\secure-context\index.js" />
+    <Content Include="src\server\common\helpers\secure-context\secure-context.js" />
+    <Content Include="src\server\common\helpers\secure-context\secure-context.test.js" />
+    <Content Include="src\server\common\helpers\serve-static-files.js" />
+    <Content Include="src\server\common\helpers\serve-static-files.test.js" />
+    <Content Include="src\server\common\helpers\session-cache\cache-engine.js" />
+    <Content Include="src\server\common\helpers\session-cache\cache-engine.test.js" />
+    <Content Include="src\server\common\helpers\session-cache\session-cache.js" />
+    <Content Include="src\server\common\helpers\start-server.js" />
+    <Content Include="src\server\common\helpers\start-server.test.js" />
+    <Content Include="src\server\common\README.md" />
+    <Content Include="src\server\common\templates\layouts\page.njk" />
+    <Content Include="src\server\common\templates\partials\navigation.njk" />
+    <Content Include="src\server\common\test-helpers\component-helpers.js" />
+    <Content Include="src\server\error\index.njk" />
+    <Content Include="src\server\health\controller.js" />
+    <Content Include="src\server\health\controller.test.js" />
+    <Content Include="src\server\health\index.js" />
+    <Content Include="src\server\home\controller.js" />
+    <Content Include="src\server\home\controller.test.js" />
+    <Content Include="src\server\home\index.js" />
+    <Content Include="src\server\home\index.njk" />
+    <Content Include="src\server\index.js" />
+    <Content Include="src\server\router.js" />
+    <Content Include="stylelint.config.js" />
+    <Content Include="tsconfig.json" />
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+
+</Project>
