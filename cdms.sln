@@ -1,8 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsBackend", "..\cdms-backend\CdmsBackend\CdmsBackend.csproj", "{945589D9-6C4D-4A7C-A005-82F0FA2EF8B7}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsBackend", "..\cdms-backend\CdmsBackend\CdmsBackend.csproj", "{945589D9-6C4D-4A7C-A005-82F0FA2EF8B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsBackend.Test", "..\cdms-backend\CdmsBackend.Test\CdmsBackend.Test.csproj", "{08F1E866-C224-441B-9A33-A6FF246739B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsBackend.Test", "..\cdms-backend\CdmsBackend.Test\CdmsBackend.Test.csproj", "{08F1E866-C224-441B-9A33-A6FF246739B9}"
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CdmsFrontend", "CdmsFrontend.njsproj", "{541195E3-F0C5-4B56-A429-A5FE88238BE2}"
 EndProject
@@ -10,21 +13,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGateway", "..\cdms-gate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGateway.Test", "..\cdms-gateway\CdmsGateway.Test\CdmsGateway.Test.csproj", "{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdms.Types.Ipaffs.V1", "..\cdms-backend\Cdms.Types.Ipaffs.V1\Cdms.Types.Ipaffs.V1.csproj", "{D7B17ACD-FA44-49D4-B7B0-C87F22DAFCD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Types.Ipaffs.V1", "..\cdms-backend\Cdms.Types.Ipaffs.V1\Cdms.Types.Ipaffs.V1.csproj", "{D7B17ACD-FA44-49D4-B7B0-C87F22DAFCD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsBackend.Cli", "..\cdms-backend\CdmsBackend.Cli\CdmsBackend.Cli.csproj", "{83B2CBFF-CAEC-475A-8791-7251CF93F16B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsBackend.Cli", "..\cdms-backend\CdmsBackend.Cli\CdmsBackend.Cli.csproj", "{83B2CBFF-CAEC-475A-8791-7251CF93F16B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdms.Types.Ipaffs.Mapping.V1", "..\cdms-backend\Cdms.Types.Ipaffs.Mapping.V1\Cdms.Types.Ipaffs.Mapping.V1.csproj", "{722956D3-F3F2-43CC-9A35-39AF5E409962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Types.Ipaffs.Mapping.V1", "..\cdms-backend\Cdms.Types.Ipaffs.Mapping.V1\Cdms.Types.Ipaffs.Mapping.V1.csproj", "{722956D3-F3F2-43CC-9A35-39AF5E409962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdms.SensitiveData", "..\cdms-backend\Cdms.SensitiveData\Cdms.SensitiveData.csproj", "{1C69C3A5-044A-4D3E-9A19-8C467FF654C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.SensitiveData", "..\cdms-backend\Cdms.SensitiveData\Cdms.SensitiveData.csproj", "{1C69C3A5-044A-4D3E-9A19-8C467FF654C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdms.Model", "..\cdms-backend\Cdms.Model\Cdms.Model.csproj", "{2400F595-9E7A-4519-92E8-81E2E3879D71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Model", "..\cdms-backend\Cdms.Model\Cdms.Model.csproj", "{2400F595-9E7A-4519-92E8-81E2E3879D71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdms.Backend.Data", "..\cdms-backend\Cdms.Backend.Data\Cdms.Backend.Data.csproj", "{35568B06-0D14-4472-93A6-6940FB099057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Backend.Data", "..\cdms-backend\Cdms.Backend.Data\Cdms.Backend.Data.csproj", "{35568B06-0D14-4472-93A6-6940FB099057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataGenerator", "..\cdms-backend\TestDataGenerator\TestDataGenerator.csproj", "{F05DA16D-6083-4D02-BE81-3EB0BDDD018E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDataGenerator", "..\cdms-backend\TestDataGenerator\TestDataGenerator.csproj", "{F05DA16D-6083-4D02-BE81-3EB0BDDD018E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataGenerator.Tests", "..\cdms-backend\TestDataGenerator.Tests\TestDataGenerator.Tests.csproj", "{6F698BB8-187B-4093-B44E-EC31DDB5705B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDataGenerator.Tests", "..\cdms-backend\TestDataGenerator.Tests\TestDataGenerator.Tests.csproj", "{6F698BB8-187B-4093-B44E-EC31DDB5705B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Types.Gmr.V1", "..\cdms-backend\Cdms.Types.Gmr.V1\Cdms.Types.Gmr.V1.csproj", "{C728449E-B830-4BA7-9E1D-667EF7DC236C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Types.Gmr.Mapping.V1", "..\cdms-backend\Cdms.Types.Gmr.Mapping.V1\Cdms.Types.Gmr.Mapping.V1.csproj", "{D838263C-CED1-4FF2-9662-A5E6C419EA96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{7790982F-E010-4C03-BD2F-371514730F4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,5 +89,22 @@ Global
 		{6F698BB8-187B-4093-B44E-EC31DDB5705B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F698BB8-187B-4093-B44E-EC31DDB5705B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F698BB8-187B-4093-B44E-EC31DDB5705B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C728449E-B830-4BA7-9E1D-667EF7DC236C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C728449E-B830-4BA7-9E1D-667EF7DC236C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C728449E-B830-4BA7-9E1D-667EF7DC236C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C728449E-B830-4BA7-9E1D-667EF7DC236C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D838263C-CED1-4FF2-9662-A5E6C419EA96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D838263C-CED1-4FF2-9662-A5E6C419EA96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D838263C-CED1-4FF2-9662-A5E6C419EA96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D838263C-CED1-4FF2-9662-A5E6C419EA96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83B2CBFF-CAEC-475A-8791-7251CF93F16B} = {7790982F-E010-4C03-BD2F-371514730F4C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9201A988-2EA4-475D-A45B-B9AF2BE62EC7}
 	EndGlobalSection
 EndGlobal
