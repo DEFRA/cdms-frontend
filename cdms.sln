@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdms.Model", "..\cdms-backe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdms.Backend.Data", "..\cdms-backend\Cdms.Backend.Data\Cdms.Backend.Data.csproj", "{35568B06-0D14-4472-93A6-6940FB099057}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataGenerator", "..\cdms-backend\TestDataGenerator\TestDataGenerator.csproj", "{F05DA16D-6083-4D02-BE81-3EB0BDDD018E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataGenerator.Tests", "..\cdms-backend\TestDataGenerator.Tests\TestDataGenerator.Tests.csproj", "{6F698BB8-187B-4093-B44E-EC31DDB5705B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,5 +72,13 @@ Global
 		{35568B06-0D14-4472-93A6-6940FB099057}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35568B06-0D14-4472-93A6-6940FB099057}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35568B06-0D14-4472-93A6-6940FB099057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F05DA16D-6083-4D02-BE81-3EB0BDDD018E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F05DA16D-6083-4D02-BE81-3EB0BDDD018E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F05DA16D-6083-4D02-BE81-3EB0BDDD018E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F05DA16D-6083-4D02-BE81-3EB0BDDD018E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F698BB8-187B-4093-B44E-EC31DDB5705B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F698BB8-187B-4093-B44E-EC31DDB5705B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F698BB8-187B-4093-B44E-EC31DDB5705B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F698BB8-187B-4093-B44E-EC31DDB5705B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
