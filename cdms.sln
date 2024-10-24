@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGateway", "..\cdms-gate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGateway.Test", "..\cdms-gateway\CdmsGateway.Test\CdmsGateway.Test.csproj", "{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CdmsBackend", "CdmsBackend", "{C346C616-279C-4327-B4A9-15C76417011F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CdmsGateway", "CdmsGateway", "{DD5FC8CB-988F-4A16-8806-4077FB6BF60B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,5 +36,11 @@ Global
 		{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{945589D9-6C4D-4A7C-A005-82F0FA2EF8B7} = {C346C616-279C-4327-B4A9-15C76417011F}
+		{08F1E866-C224-441B-9A33-A6FF246739B9} = {C346C616-279C-4327-B4A9-15C76417011F}
+		{DBDF17D6-59B1-4E24-88C3-A680E63A93F9} = {DD5FC8CB-988F-4A16-8806-4077FB6BF60B}
+		{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA} = {DD5FC8CB-988F-4A16-8806-4077FB6BF60B}
 	EndGlobalSection
 EndGlobal
