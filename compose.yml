@@ -44,49 +44,47 @@ services:
 
 ################################################################################
 
-  your-frontend:
-    build: ./
+  aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/nightly/aspire-dashboard:8.2
     ports:
-      - '3000:3000'
+      - '18888:18888'
+      - '18889:18889'
+    restart: always
+    environment:
+      DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS: true
+    networks:
+      cdp-tenant:
+        aliases:
+          - aspire-dashboard.localtest.me
+
+  cdp-defra-id-stub:
+    build: https://github.com/DEFRA/cdp-defra-id-stub.git
+    ports:
+      - '7200:7200'
     links:
-      - 'localstack:localstack'
       - 'redis:redis'
     depends_on:
       localstack:
         condition: service_healthy
       redis:
         condition: service_started
-    env_file:
-      - 'compose/aws.env'
+    healthcheck:
+      test: ['CMD', 'curl', 'localhost:7200']
+      interval: 5s
+      start_period: 5s
+      retries: 3
+
     environment:
-      PORT: 3000
+      PORT: 7200
       NODE_ENV: development
       REDIS_HOST: redis
-      LOCALSTACK_ENDPOINT: http://localstack:4566
-      USE_SINGLE_INSTANCE_CACHE: true
+      # USE_SINGLE_INSTANCE_CACHE: true
+      APP_BASE_URL: http://cdp-defra-id-stub.localtest.me:7200
+      REDIS_ENABLED: true
     networks:
-      - cdp-tenant
-
-  # your-backend:
-  #   image: defradigital/your-backend:${YOUR_BACKEND_VERSION:-latest}
-  #   ports:
-  #     - '3555:3555'
-  #   links:
-  #     - 'localstack:localstack'
-  #     - 'mongodb:mongodb'
-  #   depends_on:
-  #     localstack:
-  #       condition: service_healthy
-  #     mongodb:
-  #       condition: service_started
-  #   env_file:
-  #     - 'compose/aws.env'
-  #   environment:
-  #     PORT: 3555
-  #     NODE_ENV: development
-  #     LOCALSTACK_ENDPOINT: http://localstack:4566
-  #   networks:
-  #     - cdp-tenant
+      cdp-tenant:
+        aliases:
+          - cdp-defra-id-stub.localtest.me
 
 ################################################################################
 
