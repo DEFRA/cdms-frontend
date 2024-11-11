@@ -9,17 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsBackend.Test", "..\cdms
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CdmsFrontend", "CdmsFrontend.njsproj", "{541195E3-F0C5-4B56-A429-A5FE88238BE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGateway", "..\cdms-gateway\CdmsGateway\CdmsGateway.csproj", "{DBDF17D6-59B1-4E24-88C3-A680E63A93F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsGateway", "..\cdms-gateway\CdmsGateway\CdmsGateway.csproj", "{DBDF17D6-59B1-4E24-88C3-A680E63A93F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGateway.Test", "..\cdms-gateway\CdmsGateway.Test\CdmsGateway.Test.csproj", "{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsGateway.Test", "..\cdms-gateway\CdmsGateway.Test\CdmsGateway.Test.csproj", "{E67E8C1E-9FE9-4A7E-A5A3-FF1B89591CDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CdmsBackend", "CdmsBackend", "{C346C616-279C-4327-B4A9-15C76417011F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CdmsGateway", "CdmsGateway", "{DD5FC8CB-988F-4A16-8806-4077FB6BF60B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGatewayStub", "..\cdms-gateway-stub\CdmsGatewayStub\CdmsGatewayStub.csproj", "{51A49C25-8523-45A8-A529-AFC4B6A7624E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsGatewayStub", "..\cdms-gateway-stub\CdmsGatewayStub\CdmsGatewayStub.csproj", "{51A49C25-8523-45A8-A529-AFC4B6A7624E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsGatewayStub.Test", "..\cdms-gateway-stub\CdmsGatewayStub.Test\CdmsGatewayStub.Test.csproj", "{68239678-EE73-4835-B21D-2AFF962CFF2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsGatewayStub.Test", "..\cdms-gateway-stub\CdmsGatewayStub.Test\CdmsGatewayStub.Test.csproj", "{68239678-EE73-4835-B21D-2AFF962CFF2B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{55EEF0FB-0961-4D10-BD11-ED2337221BF3}"
 EndProject
@@ -68,6 +68,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Types.Ipaffs.V1", "..\cdms-backend\Cdms.Types.Ipaffs.V1\Cdms.Types.Ipaffs.V1.csproj", "{D79F203C-66EA-479A-BEB2-1B66228AB253}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Types.Ipaffs.Mapping.V1", "..\cdms-backend\Cdms.Types.Ipaffs.Mapping.V1\Cdms.Types.Ipaffs.Mapping.V1.csproj", "{BE499C5D-3AF5-455E-B069-1F5DD16EAB85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.SyncJob", "..\cdms-backend\Cdms.SyncJob\Cdms.SyncJob.csproj", "{E0B73D01-B6FE-4A33-8D18-44E2180394EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,6 +185,10 @@ Global
 		{BE499C5D-3AF5-455E-B069-1F5DD16EAB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE499C5D-3AF5-455E-B069-1F5DD16EAB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE499C5D-3AF5-455E-B069-1F5DD16EAB85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B73D01-B6FE-4A33-8D18-44E2180394EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B73D01-B6FE-4A33-8D18-44E2180394EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B73D01-B6FE-4A33-8D18-44E2180394EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B73D01-B6FE-4A33-8D18-44E2180394EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,6 +224,7 @@ Global
 		{0983334A-EE48-4086-832F-C3ADBF90847E} = {6F439646-2994-4307-92F8-CB2D3DA288F3}
 		{D79F203C-66EA-479A-BEB2-1B66228AB253} = {6F439646-2994-4307-92F8-CB2D3DA288F3}
 		{BE499C5D-3AF5-455E-B069-1F5DD16EAB85} = {6F439646-2994-4307-92F8-CB2D3DA288F3}
+		{E0B73D01-B6FE-4A33-8D18-44E2180394EF} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E9ECA82-73FF-4728-8332-4EF7710F84C7}
