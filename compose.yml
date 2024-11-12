@@ -4,8 +4,8 @@ services:
   localstack:
     image: localstack/localstack:3.0.2
     ports:
-      - '4566:4566' # LocalStack Gateway
-      - '4510-4559:4510-4559' # external services port range
+      - '4966:4566' # LocalStack Gateway
+      - '4910-4959:4510-4559' # external services port range
     env_file:
       - 'compose/aws.env'
     environment:
@@ -27,7 +27,7 @@ services:
   redis:
     image: redis:7.2.3-alpine3.18
     ports:
-      - '6379:6379'
+      - '6979:6379'
     restart: always
     networks:
       - cdp-tenant
@@ -37,7 +37,7 @@ services:
     networks:
       - cdp-tenant
     ports:
-      - '27017:27017'
+      - '29017:27017'
     volumes:
       - mongodb-data:/data
     restart: always
@@ -60,7 +60,7 @@ services:
   cdp-defra-id-stub:
     build: https://github.com/DEFRA/cdp-defra-id-stub.git
     ports:
-      - '7200:7200'
+      - '9200:9200'
     links:
       - 'redis:redis'
     depends_on:
@@ -69,17 +69,17 @@ services:
       redis:
         condition: service_started
     healthcheck:
-      test: ['CMD', 'curl', 'localhost:7200']
+      test: ['CMD', 'curl', 'localhost:9200']
       interval: 5s
       start_period: 5s
       retries: 3
 
     environment:
-      PORT: 7200
+      PORT: 9200
       NODE_ENV: development
       REDIS_HOST: redis
       # USE_SINGLE_INSTANCE_CACHE: true
-      APP_BASE_URL: http://cdp-defra-id-stub.localtest.me:7200
+      APP_BASE_URL: http://cdp-defra-id-stub.localtest.me:9200
       REDIS_ENABLED: true
     networks:
       cdp-tenant:

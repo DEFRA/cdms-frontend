@@ -70,6 +70,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Types.Ipaffs.Mapping.V1", "..\cdms-backend\Cdms.Types.Ipaffs.Mapping.V1\Cdms.Types.Ipaffs.Mapping.V1.csproj", "{BE499C5D-3AF5-455E-B069-1F5DD16EAB85}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.SyncJob", "..\cdms-backend\Cdms.SyncJob\Cdms.SyncJob.csproj", "{E0B73D01-B6FE-4A33-8D18-44E2180394EF}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CdmsBackendPerfTests", "..\cdms-backend-perf-tests\CdmsBackendPerfTests.njsproj", "{3656278E-5CE7-4EBA-9820-31F4A7E6CD8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -225,6 +226,7 @@ Global
 		{D79F203C-66EA-479A-BEB2-1B66228AB253} = {6F439646-2994-4307-92F8-CB2D3DA288F3}
 		{BE499C5D-3AF5-455E-B069-1F5DD16EAB85} = {6F439646-2994-4307-92F8-CB2D3DA288F3}
 		{E0B73D01-B6FE-4A33-8D18-44E2180394EF} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
+		{3656278E-5CE7-4EBA-9820-31F4A7E6CD8B} = {C346C616-279C-4327-B4A9-15C76417011F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E9ECA82-73FF-4728-8332-4EF7710F84C7}
