@@ -62,6 +62,18 @@ services:
 
 ################################################################################
 
+  grafana:
+    image: grafana/otel-lgtm
+    ports:
+      - '3000:3000'
+      - '4317:4317'
+      - '4318:4318'
+    restart: always
+    networks:
+      cdp-tenant:
+        aliases:
+          - grafana.localtest.me
+
   aspire-dashboard:
     image: mcr.microsoft.com/dotnet/nightly/aspire-dashboard:8.2
     ports:
