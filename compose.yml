@@ -46,7 +46,7 @@ services:
     networks:
       - cdp-tenant
     ports:
-      - 29017:27017
+      - 29017:29017
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
