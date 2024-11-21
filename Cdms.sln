@@ -75,6 +75,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.SyncJob", "..\cdms-bac
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CdmsBackendPerfTests", "..\cdms-backend-perf-tests\CdmsBackendPerfTests.njsproj", "{3656278E-5CE7-4EBA-9820-31F4A7E6CD8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CdmsBackend.IntegrationTests", "..\cdms-backend\CdmsBackend.IntegrationTests\CdmsBackend.IntegrationTests.csproj", "{425BB074-B02F-4F2B-B37B-EEC251923BAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +199,10 @@ Global
 		{E0B73D01-B6FE-4A33-8D18-44E2180394EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0B73D01-B6FE-4A33-8D18-44E2180394EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0B73D01-B6FE-4A33-8D18-44E2180394EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{425BB074-B02F-4F2B-B37B-EEC251923BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425BB074-B02F-4F2B-B37B-EEC251923BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425BB074-B02F-4F2B-B37B-EEC251923BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425BB074-B02F-4F2B-B37B-EEC251923BAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -235,6 +241,7 @@ Global
 		{F99A3489-A7B3-4DED-97FE-4EBBB0422A8C} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 		{E0B73D01-B6FE-4A33-8D18-44E2180394EF} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 		{3656278E-5CE7-4EBA-9820-31F4A7E6CD8B} = {3E3258BB-3A37-44A2-BD16-0CE6281CEF9D}
+		{425BB074-B02F-4F2B-B37B-EEC251923BAE} = {C346C616-279C-4327-B4A9-15C76417011F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E9ECA82-73FF-4728-8332-4EF7710F84C7}

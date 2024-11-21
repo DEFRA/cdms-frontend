@@ -65,9 +65,9 @@ services:
   grafana:
     image: grafana/otel-lgtm
     ports:
-      - '3000:3000'
-      - '4317:4317'
-      - '4318:4318'
+      - '9000:3000'
+      - '9317:4317'
+      - '9318:4318'
     restart: always
     networks:
       cdp-tenant:
