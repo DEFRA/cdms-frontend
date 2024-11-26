@@ -5,6 +5,7 @@ import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
 /**
  * @typedef {object} RedisConfig
  * @property {string} host
+ * @property {number} port
  * @property {string} username
  * @property {string} password
  * @property {string} keyPrefix
@@ -21,7 +22,7 @@ import { createLogger } from '~/src/server/common/helpers/logging/logger.js'
  */
 export function buildRedisClient(redisConfig) {
   const logger = createLogger()
-  const port = 6379
+  const port = redisConfig.port
   const db = 0
   const keyPrefix = redisConfig.keyPrefix
   const host = redisConfig.host

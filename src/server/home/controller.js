@@ -3,6 +3,7 @@
  * Provided as an example, remove or modify as required.
  * @satisfies {Partial<ServerRoute>}
  */
+
 export const homeController = {
   handler(_request, h) {
     return h.view('home/index', {

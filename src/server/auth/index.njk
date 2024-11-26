@@ -1,0 +1,31 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  {{ appHeading({
+    text: heading,
+    caption: "User authentication details."
+  }) }}
+
+  {% if authedUser.displayName %}
+    <p>
+      Welcome, <strong>{{ authedUser.displayName }}</strong><br />
+      <a href="{{manageAccountUrl}}">Manage account</a> - <a href="/logout">Sign out</a>
+    </p>
+    <p>
+      Here are your details:
+      <ul>
+      {% for k, v in authedUser %}
+        <li><code><strong>{{ k }}</strong></code><p><code>{{ v }}</code></p></li>
+      {% endfor %}
+      </ul>
+    </p>
+  {% else %}
+    <p>
+      Welcome, guest!
+    </p>
+    <p>
+      You can login <a id="login-link" href="/login">here</a>
+    </p>
+  {% endif %}
+
+{% endblock %}

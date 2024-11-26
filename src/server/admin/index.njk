@@ -1,0 +1,102 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  {{ appHeading({
+    text: heading,
+    caption: "Administer the POC"
+  }) }}
+
+  <form method="get" action="/admin/sync" autocomplete="off" novalidate>
+
+    {% call govukFieldset({
+      legend: {
+        text: "Sync",
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: false
+      }
+    }) %}
+    {{ govukSelect({
+      id: "resource",
+      name: "resource",
+      label: {
+        text: "Resource"
+      },
+      items: [
+        {
+          value: "import-notifications",
+          text: "Import Notifications",
+          selected: true
+        },
+        {
+          value: "clearance-requests",
+          text: "Clearance Requests"
+        },
+        {
+          value: "decisions",
+          text: "Decision Notifications"
+        },
+        {
+          value: "gmrs",
+          text: "GMRs"
+        }
+      ]
+    }) }}
+    {{ govukSelect({
+      id: "period",
+      name: "period",
+      label: {
+        text: "Period"
+      },
+      items: [
+        {
+          value: "Today",
+          text: "Today"
+        },
+        {
+          value: "ThisMonth",
+          text: "This Month"
+        },
+        {
+          value: "LastMonth",
+          text: "Last Month",
+          selected: true
+        },
+        {
+          value: "All",
+          text: "All"
+        }
+      ]
+    }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Sync Now",
+          classes: "govuk-button--primary",
+          preventDoubleClick: true
+        }) }}
+      </div>
+      </form>
+    {% endcall %}
+
+
+  <form method="post" action="/admin/clear-db" autocomplete="off" novalidate>
+
+    {% call govukFieldset({
+      legend: {
+        text: "Clear Database",
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: false
+      }
+    }) %}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Clear Now",
+          classes: "govuk-button--secondary",
+          preventDoubleClick: true
+        }) }}
+      </div>
+      </form>
+
+    {% endcall %}
+
+{% endblock %}

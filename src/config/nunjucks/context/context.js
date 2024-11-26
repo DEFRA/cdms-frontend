@@ -18,7 +18,7 @@ let webpackManifest
 /**
  * @param {Request | null} request
  */
-export function context(request) {
+export async function context(request) {
   if (!webpackManifest) {
     try {
       webpackManifest = JSON.parse(readFileSync(manifestPath, 'utf-8'))
@@ -27,7 +27,10 @@ export function context(request) {
     }
   }
 
+  // @ts-expect-error getUserSession method is added by server.decorate
+  const authedUser = await request.getUserSession()
   return {
+    authedUser,
     assetPath: `${assetPath}/assets`,
     serviceName: config.get('serviceName'),
     serviceUrl: '/',
