@@ -10,11 +10,18 @@ import { secureContext } from '~/src/server/common/helpers/secure-context/index.
 import { sessionCache } from '~/src/server/common/helpers/session-cache/session-cache.js'
 import { getCacheEngine } from '~/src/server/common/helpers/session-cache/cache-engine.js'
 import { pulse } from '~/src/server/common/helpers/pulse.js'
+import { defraId } from '~/src/server/common/helpers/auth/defra-id.js'
+import { sessionCookie } from '~/src/server/common/helpers/auth/session-cookie.js'
+import { getUserSession } from '~/src/server/common/helpers/auth/get-user-session.js'
+import { dropUserSession } from '~/src/server/common/helpers/auth/drop-user-session.js'
 
 export async function createServer() {
   const server = hapi.server({
     port: config.get('port'),
     routes: {
+      auth: {
+        mode: 'required'
+      },
       validate: {
         options: {
           abortEarly: false
@@ -34,6 +41,10 @@ export async function createServer() {
         xframe: true
       }
     },
+    debug: {
+      log: ['*'],
+      request: ['*']
+    },
     router: {
       stripTrailingSlash: true
     },
@@ -47,12 +58,24 @@ export async function createServer() {
     ]
   })
 
+  // @ts-expect-error unsure why it's so upset
+  server.app.cache = server.cache({
+    cache: 'session',
+    expiresIn: config.get('session.cache.ttl'),
+    segment: 'session'
+  })
+
+  server.decorate('request', 'getUserSession', getUserSession)
+  server.decorate('request', 'dropUserSession', dropUserSession)
+
   await server.register([
     requestLogger,
     secureContext,
     pulse,
     sessionCache,
     nunjucksConfig,
+    defraId,
+    sessionCookie,
     router // Register all the controllers/routes defined in src/server/router.js
   ])
 

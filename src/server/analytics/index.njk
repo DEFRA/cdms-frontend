@@ -3,16 +3,14 @@
 {% block content %}
   {{ appHeading({
     text: heading,
-    caption: "Core delivery platform CDMS."
+    caption: "Providing insights into the current state of the CDMS data."
   }) }}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-body" data-testid="app-page-body">
-        <p>
-          Welcome to CDMS 🚀
-        </p>
-
+        <div><canvas id="importNotificationsLinkingByCreated"></canvas></div>
+        <div><canvas id="importNotificationsLinkingByArrival"></canvas></div>
       </div>
     </div>
   </div>
