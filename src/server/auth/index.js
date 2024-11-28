@@ -9,6 +9,9 @@ const auth = {
         {
           method: 'GET',
           path: '/auth/proxy/{path*}',
+          options: {
+            auth: { mode: 'try' }
+          },
           ...authenticatedProxyController
         },
         {
