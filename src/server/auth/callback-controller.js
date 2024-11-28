@@ -2,9 +2,9 @@ import { v4 as uuidv4 } from 'uuid'
 import { addSeconds } from 'date-fns'
 
 const authCallbackController = {
-  options: {
-    auth: 'defra-id'
-  },
+  // options: {
+  //   auth: 'defra-id'
+  // },
   handler: async (request, h) => {
     if (request.auth.isAuthenticated) {
       const { profile } = request.auth.credentials
