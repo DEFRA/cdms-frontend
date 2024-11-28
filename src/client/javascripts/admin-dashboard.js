@@ -11,10 +11,12 @@ import {
   Legend,
   Title,
   DoughnutController,
-  ArcElement
+  ArcElement,
+  TimeScale
 } from 'chart.js'
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import 'chartjs-adapter-date-fns';
 
 import axios from 'axios'
 
@@ -30,7 +32,8 @@ Chart.register(
   Legend,
   Title,
   DoughnutController,
-  ArcElement
+  ArcElement,
+  TimeScale
 )
 
 const colourMap = {
@@ -57,8 +60,41 @@ export const setup = async function () {
       result.data.importNotificationLinkingByCreated
     )
 
+    createLineChart(
+      'last24HoursImportNotificationsLinkingByCreated',
+      'Last 24 Hours Import Notification Linking By CHED Type & Link Status',
+      'Created Time',
+      'hour',
+      result.data.last24HoursImportNotificationsLinkingByCreated
+    )
+
+    createLineChart(
+      'last24HoursMovementsLinkingByCreated',
+      'Last 24 Hours Movement Linking Link Status',
+      'Created Time',
+      'hour',
+      result.data.last24HoursMovementsLinkingByCreated
+    )
+
     createLast7DaysImportNotificationsLinkingStatus(result.data.last7DaysImportNotificationsLinkingStatus.values)
     createLast24HoursImportNotificationsLinkingStatus(result.data.last24HoursImportNotificationsLinkingStatus.values)
+
+    createLineChart(
+      'movementsLinkingByCreated',
+      'Movement Linking By Link Status',
+      'Created Date',
+      'day',
+      result.data.movementsLinkingByCreated
+    )
+
+    createLineChart(
+      'movementsLinkingByArrival',
+      'Movement Linking By Link Status',
+      'Arrival Date',
+      'day',
+      result.data.movementsLinkingByArrival
+    )
+
   })()
 }
 
@@ -69,14 +105,14 @@ function createLast7DaysImportNotificationsLinkingStatus(data) {
   const chartData = {
     labels: Object.keys(data),
     datasets: [{
-      label: 'Import Notification Linking By CHED Type & Match Status',
+      label: 'Import Notification Linking By CHED Type & Link Status',
       data: Object.values(data),
       backgroundColor:
         Object.keys(data).map(k => colourMap[k]),
       hoverOffset: 4
     }]
   }
-  createImportLinkingStatus('last7DaysImportNotificationsLinkingStatus', 'Last 7 Days Import Notification Linking By CHED Type & Match Status', chartData)
+  createStatusDoughnut('last7DaysImportNotificationsLinkingStatus', 'Last 7 Days Import Notification Linking By CHED Type & Match Status', chartData)
 }
 
 function createLast24HoursImportNotificationsLinkingStatus(data) {
@@ -85,14 +121,14 @@ function createLast24HoursImportNotificationsLinkingStatus(data) {
   const chartData = {
     labels: Object.keys(data),
     datasets: [{
-      label: 'Import Notification Linking By CHED Type & Match Status',
+      label: 'Import Notification Linking By CHED Type & Link Status',
       data: Object.values(data),
       backgroundColor:
         Object.keys(data).map(k => colourMap[k]),
       hoverOffset: 4
     }]
   }
-  createImportLinkingStatus('last24HoursImportNotificationsLinkingStatus2', 'Last 24 Hours Import Notification Linking By CHED Type & Match Status', chartData)
+  createStatusDoughnut('last24HoursImportNotificationsLinkingStatus2', 'Last 24 Hours Import Notification Linking By CHED Type & Match Status', chartData)
 }
 
 
@@ -100,10 +136,11 @@ function createLast24HoursImportNotificationsLinkingStatus(data) {
  * @param {any} data
  */
 function createImportNotificationsLinkingByCreated(data) {
-  createImportNotificationsLinkingByDate(
+  createLineChart(
     'importNotificationsLinkingByCreated',
-    'Import Notification Linking By CHED Type & Match Status',
+    'Import Notification Linking By CHED Type & Link Status',
     'Created Date',
+    'day',
     data
   )
 }
@@ -112,10 +149,11 @@ function createImportNotificationsLinkingByCreated(data) {
  * @param {any} data
  */
 function createImportNotificationsLinkingByArrival(data) {
-  createImportNotificationsLinkingByDate(
+  createLineChart(
     'importNotificationsLinkingByArrival',
-    'Import Notification Linking By CHED Type & Match Status',
+    'Import Notification Linking By CHED Type & Link Status',
     'Arrival Date',
+    'day',
     data
   )
 }
@@ -126,23 +164,24 @@ function createImportNotificationsLinkingByArrival(data) {
  * @param {string} dateFieldLabel
  * @param {any[]} data
  */
-function createImportNotificationsLinkingByDate(
+function createLineChart(
   elementId,
   title,
   dateFieldLabel,
+  xAxisUnit,
   data
 ) {
   const datasets = data.map((r) => ({
     label: r.name,
     borderColor: colourMap[r.name],
-    data: r.dates.map((d) => d.value)
+    data: r.periods.map((d) => d.value)
   }))
 
   /* eslint-disable no-new */ // @ts-expect-error: code from chart.js
   new Chart(document.getElementById(elementId), {
     type: 'line',
     data: {
-      labels: data[0].dates.map((d) => d.date),
+      labels: data[0].periods.map((d) => d.period),
       datasets
     },
     options: {
@@ -160,6 +199,10 @@ function createImportNotificationsLinkingByDate(
           title: {
             display: true,
             text: dateFieldLabel
+          },
+          type: 'time',
+          time: {
+            unit: xAxisUnit
           }
         },
         y: {
@@ -173,7 +216,7 @@ function createImportNotificationsLinkingByDate(
     }
   })
 }
-function createImportLinkingStatus(elementId, title, data) {
+function createStatusDoughnut(elementId, title, data) {
   /* eslint-disable no-new */ // @ts-expect-error: code from chart.js
   new Chart(document.getElementById(elementId), {
     type: 'doughnut',
