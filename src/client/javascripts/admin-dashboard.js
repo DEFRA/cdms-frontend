@@ -49,9 +49,12 @@ const colourMap = {
 
 export const setup = async function () {
   await (async function () {
-    const url = `/auth/proxy/analytics/get-dashboard`
+    const url = `/auth/proxy/analytics/dashboard`
 
     const result = await axios.get(url)
+
+    createStatusDoughnut('lastMonthImportNotificationsByTypeAndStatus', 'Last Month Import Notifications By CHED Type & Link Status', result.data.last7DaysImportNotificationsLinkingStatus.values)
+    createStatusDoughnut('lastMonthMovementsByStatus', 'Last Month Movements By Link Status', result.data.last24HoursImportNotificationsLinkingStatus.values)
 
     createImportNotificationsLinkingByArrival(
       result.data.importNotificationLinkingByArrival
@@ -62,7 +65,7 @@ export const setup = async function () {
 
     createLineChart(
       'last24HoursImportNotificationsLinkingByCreated',
-      'Last 24 Hours Import Notification Linking By CHED Type & Link Status',
+      'Last 24 Hours Import Notifications By CHED Type & Link Status',
       'Created Time',
       'hour',
       result.data.last24HoursImportNotificationsLinkingByCreated
@@ -70,18 +73,18 @@ export const setup = async function () {
 
     createLineChart(
       'last24HoursMovementsLinkingByCreated',
-      'Last 24 Hours Movement Linking Link Status',
+      'Last 24 Hours Movements Link Status',
       'Created Time',
       'hour',
       result.data.last24HoursMovementsLinkingByCreated
     )
 
-    createLast7DaysImportNotificationsLinkingStatus(result.data.last7DaysImportNotificationsLinkingStatus.values)
-    createLast24HoursImportNotificationsLinkingStatus(result.data.last24HoursImportNotificationsLinkingStatus.values)
+    createStatusDoughnut('last7DaysImportNotificationsLinkingStatus', 'Last 7 Days Import Notifications By CHED Type & Link Status', result.data.last7DaysImportNotificationsLinkingStatus.values)
+    createStatusDoughnut('last24HoursImportNotificationsLinkingStatus', 'Last 24 Hours Import Notifications By CHED Type & Link Status', result.data.last24HoursImportNotificationsLinkingStatus.values)
 
     createLineChart(
       'movementsLinkingByCreated',
-      'Movement Linking By Link Status',
+      'Movements By Link Status',
       'Created Date',
       'day',
       result.data.movementsLinkingByCreated
@@ -89,7 +92,7 @@ export const setup = async function () {
 
     createLineChart(
       'movementsLinkingByArrival',
-      'Movement Linking By Link Status',
+      'Movements By Link Status',
       'Arrival Date',
       'day',
       result.data.movementsLinkingByArrival
@@ -98,47 +101,13 @@ export const setup = async function () {
   })()
 }
 
-function createLast7DaysImportNotificationsLinkingStatus(data) {
-
-  // data =  {'Cveda Linked': 300, 'Cvedp Linked': 50,'Cveda Not Linked':  100};
-
-  const chartData = {
-    labels: Object.keys(data),
-    datasets: [{
-      label: 'Import Notification Linking By CHED Type & Link Status',
-      data: Object.values(data),
-      backgroundColor:
-        Object.keys(data).map(k => colourMap[k]),
-      hoverOffset: 4
-    }]
-  }
-  createStatusDoughnut('last7DaysImportNotificationsLinkingStatus', 'Last 7 Days Import Notification Linking By CHED Type & Match Status', chartData)
-}
-
-function createLast24HoursImportNotificationsLinkingStatus(data) {
-  // data =  {'Cveda Linked': 39, 'Cvedp Linked': 10,'Cveda Not Linked':  11};
-
-  const chartData = {
-    labels: Object.keys(data),
-    datasets: [{
-      label: 'Import Notification Linking By CHED Type & Link Status',
-      data: Object.values(data),
-      backgroundColor:
-        Object.keys(data).map(k => colourMap[k]),
-      hoverOffset: 4
-    }]
-  }
-  createStatusDoughnut('last24HoursImportNotificationsLinkingStatus2', 'Last 24 Hours Import Notification Linking By CHED Type & Match Status', chartData)
-}
-
-
 /**
  * @param {any} data
  */
 function createImportNotificationsLinkingByCreated(data) {
   createLineChart(
     'importNotificationsLinkingByCreated',
-    'Import Notification Linking By CHED Type & Link Status',
+    'Import Notifications By CHED Type & Link Status',
     'Created Date',
     'day',
     data
@@ -151,7 +120,7 @@ function createImportNotificationsLinkingByCreated(data) {
 function createImportNotificationsLinkingByArrival(data) {
   createLineChart(
     'importNotificationsLinkingByArrival',
-    'Import Notification Linking By CHED Type & Link Status',
+    'Import Notifications By CHED Type & Link Status',
     'Arrival Date',
     'day',
     data
@@ -162,6 +131,7 @@ function createImportNotificationsLinkingByArrival(data) {
  * @param {string} elementId
  * @param {string} title
  * @param {string} dateFieldLabel
+ * @param {string} xAxisUnit
  * @param {any[]} data
  */
 function createLineChart(
@@ -223,14 +193,25 @@ function createLineChart(
 }
 function createStatusDoughnut(elementId, title, data) {
 
-  if (!(data && data.datasets)) {
+  if (!data) {
     return
+  }
+
+  const chartData = {
+    labels: Object.keys(data),
+    datasets: [{
+      label: title,
+      data: Object.values(data),
+      backgroundColor:
+        Object.keys(data).map(k => colourMap[k]),
+      hoverOffset: 4
+    }]
   }
 
   /* eslint-disable no-new */ // @ts-expect-error: code from chart.js
   new Chart(document.getElementById(elementId), {
     type: 'doughnut',
-    data: data,
+    data: chartData,
     plugins: [ChartDataLabels],
     options: {
       maintainAspectRatio: false,
