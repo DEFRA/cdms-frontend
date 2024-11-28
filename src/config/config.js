@@ -72,7 +72,7 @@ export const config = convict({
       doc: 'The Trade Data Matching json:api backend.',
       format: String,
       default: 'http://cdms-backend.localtest.me:5000',
-      env: 'TDM_API_BACKEND'
+      env: 'CORE_BACKEND_API_URL'
     },
     exampleNotification: {
       doc: 'An example CHED ID from the backend.',

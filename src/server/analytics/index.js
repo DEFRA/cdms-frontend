@@ -13,6 +13,9 @@ export const analytics = {
         {
           method: 'GET',
           path: '/analytics',
+          options: {
+            auth: { mode: 'try' }
+          },
           ...analyticsController
         }
       ])
