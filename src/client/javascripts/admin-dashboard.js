@@ -223,7 +223,7 @@ function createLineChart(
 }
 function createStatusDoughnut(elementId, title, data) {
 
-  if (!(data && data.length)) {
+  if (!(data && data.datasets)) {
     return
   }
 
