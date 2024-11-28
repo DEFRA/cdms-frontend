@@ -172,7 +172,7 @@ function createLineChart(
   data
 ) {
 
-  if (!data) {
+  if (!(data && data.length)) {
     return
   }
 
@@ -223,7 +223,7 @@ function createLineChart(
 }
 function createStatusDoughnut(elementId, title, data) {
 
-  if (!data) {
+  if (!(data && data.length)) {
     return
   }
 
