@@ -171,6 +171,11 @@ function createLineChart(
   xAxisUnit,
   data
 ) {
+
+  if (!data) {
+    return
+  }
+
   const datasets = data.map((r) => ({
     label: r.name,
     borderColor: colourMap[r.name],
@@ -217,6 +222,11 @@ function createLineChart(
   })
 }
 function createStatusDoughnut(elementId, title, data) {
+
+  if (!data) {
+    return
+  }
+
   /* eslint-disable no-new */ // @ts-expect-error: code from chart.js
   new Chart(document.getElementById(elementId), {
     type: 'doughnut',
