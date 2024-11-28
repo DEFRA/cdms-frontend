@@ -45,6 +45,7 @@ const colourMap = {
   'Cvedp Not Linked': 'rgb(244,164,96)',
   'Cvedpp Linked': 'rgb(0,255,0)',
   'Cvedpp Not Linked': 'rgb(173,255,47)',
+  'Linked': 'rgb(255,153,153)',
 }
 
 export const setup = async function () {
@@ -53,8 +54,8 @@ export const setup = async function () {
 
     const result = await axios.get(url)
 
-    createStatusDoughnut('lastMonthImportNotificationsByTypeAndStatus', 'Last Month Import Notifications By CHED Type & Link Status', result.data.last7DaysImportNotificationsLinkingStatus.values)
-    createStatusDoughnut('lastMonthMovementsByStatus', 'Last Month Movements By Link Status', result.data.last24HoursImportNotificationsLinkingStatus.values)
+    createStatusDoughnut('lastMonthImportNotificationsByTypeAndStatus', 'Last Month Import Notifications By CHED Type & Link Status', result.data.lastMonthImportNotificationsByTypeAndStatus.values)
+    createStatusDoughnut('lastMonthMovementsByStatus', 'Last Month Movements By Link Status', result.data.lastMonthMovementsByStatus.values)
 
     createImportNotificationsLinkingByArrival(
       result.data.importNotificationLinkingByArrival
