@@ -15,8 +15,9 @@ import {
   TimeScale
 } from 'chart.js'
 
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import 'chartjs-adapter-date-fns';
+import ChartDataLabels from 'chartjs-plugin-datalabels'
+import 'chartjs-adapter-date-fns'
+import annotationPlugin from 'chartjs-plugin-annotation';
 
 import axios from 'axios'
 
@@ -33,7 +34,8 @@ Chart.register(
   Title,
   DoughnutController,
   ArcElement,
-  TimeScale
+  TimeScale,
+  annotationPlugin
 )
 
 const colourMap = {
@@ -45,7 +47,8 @@ const colourMap = {
   'Cvedp Not Linked': 'rgb(244,164,96)',
   'Cvedpp Linked': 'rgb(0,255,0)',
   'Cvedpp Not Linked': 'rgb(173,255,47)',
-  'Linked': 'rgb(255,153,153)',
+  'Linked': 'rgb(128,128,128)',
+  'Not Linked': 'rgb(224,224,224)',
 }
 
 export const setup = async function () {
@@ -54,8 +57,8 @@ export const setup = async function () {
 
     const result = await axios.get(url)
 
-    createStatusDoughnut('lastMonthImportNotificationsByTypeAndStatus', 'Last Month Import Notifications By CHED Type & Link Status', result.data.lastMonthImportNotificationsByTypeAndStatus.values)
-    createStatusDoughnut('lastMonthMovementsByStatus', 'Last Month Movements By Link Status', result.data.lastMonthMovementsByStatus.values)
+    createStatusDoughnut('lastMonthImportNotificationsByTypeAndStatus', 'Last Month', 'Import Notifications By CHED Type & Link Status', result.data.lastMonthImportNotificationsByTypeAndStatus.values)
+    createStatusDoughnut('lastMonthMovementsByStatus', 'Last Month', 'Movements By Link Status', result.data.lastMonthMovementsByStatus.values)
 
     createImportNotificationsLinkingByArrival(
       result.data.importNotificationLinkingByArrival
@@ -80,8 +83,8 @@ export const setup = async function () {
       result.data.last24HoursMovementsLinkingByCreated
     )
 
-    createStatusDoughnut('last7DaysImportNotificationsLinkingStatus', 'Last 7 Days Import Notifications By CHED Type & Link Status', result.data.last7DaysImportNotificationsLinkingStatus.values)
-    createStatusDoughnut('last24HoursImportNotificationsLinkingStatus', 'Last 24 Hours Import Notifications By CHED Type & Link Status', result.data.last24HoursImportNotificationsLinkingStatus.values)
+    createStatusDoughnut('last7DaysImportNotificationsLinkingStatus', 'Last 7 Days', 'Import Notifications By CHED Type & Link Status', result.data.last7DaysImportNotificationsLinkingStatus.values)
+    createStatusDoughnut('last24HoursImportNotificationsLinkingStatus', 'Last 24 Hours', 'Import Notifications By CHED Type & Link Status', result.data.last24HoursImportNotificationsLinkingStatus.values)
 
     createLineChart(
       'movementsLinkingByCreated',
@@ -192,7 +195,7 @@ function createLineChart(
     }
   })
 }
-function createStatusDoughnut(elementId, title, data) {
+function createStatusDoughnut(elementId, period, title, data) {
 
   if (!data) {
     return
@@ -208,6 +211,8 @@ function createStatusDoughnut(elementId, title, data) {
       hoverOffset: 4
     }]
   }
+
+  var sum = Object.values(data).reduce((a, b) => a + b, 0)
 
   /* eslint-disable no-new */ // @ts-expect-error: code from chart.js
   new Chart(document.getElementById(elementId), {
@@ -226,6 +231,19 @@ function createStatusDoughnut(elementId, title, data) {
           display: true,
           position: 'top',
           text: title
+        },
+        annotation: {
+          annotations: {
+            dLabel: {
+              type: 'doughnutLabel',
+              content: ({chart}) => ['Total',
+                sum.toLocaleString(),
+                period
+              ],
+              font: [{size: 30}, {size: 50}, {size: 30}],
+              color: ['grey', 'black', 'grey']
+            }
+          }
         }
       }
     }
