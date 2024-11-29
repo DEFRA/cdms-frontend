@@ -83,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Analytics", "..\cdms-b
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Metrics", "..\cdms-backend\Cdms.Metrics\Cdms.Metrics.csproj", "{4C459357-B2E2-438D-AF32-E3805F149A3D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CdmsTracing", "..\cdms-tracing\CdmsTracing.csproj", "{A03F4465-291F-4932-B8F9-23EC024C1C11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,10 @@ Global
 		{4C459357-B2E2-438D-AF32-E3805F149A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C459357-B2E2-438D-AF32-E3805F149A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C459357-B2E2-438D-AF32-E3805F149A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03F4465-291F-4932-B8F9-23EC024C1C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03F4465-291F-4932-B8F9-23EC024C1C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03F4465-291F-4932-B8F9-23EC024C1C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03F4465-291F-4932-B8F9-23EC024C1C11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -263,6 +269,7 @@ Global
 		{A8661FF9-1D4A-4356-82A7-7423F216FAC4} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 		{151F620A-F224-4977-B4C3-A9831C03A70F} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 		{4C459357-B2E2-438D-AF32-E3805F149A3D} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
+		{A03F4465-291F-4932-B8F9-23EC024C1C11} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E9ECA82-73FF-4728-8332-4EF7710F84C7}
