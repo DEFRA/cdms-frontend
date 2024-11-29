@@ -225,7 +225,10 @@ function createStatusDoughnut(elementId, period, title, data) {
 
       plugins: {
         datalabels: {
-          color: '#ffffff'
+          color: '#ffffff',
+          formatter: function(value, context) {
+            return value.toLocaleString()
+          }
         },
         title: {
           display: true,
