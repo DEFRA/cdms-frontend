@@ -63,11 +63,10 @@ services:
 ################################################################################
 
   grafana:
-    image: grafana/otel-lgtm
+    build:
+      context: "../btms-telemetry-extensions"
     ports:
-      - '9000:3000'
-      - '9317:4317'
-      - '9318:4318'
+      - '9000:8085'
     restart: always
     networks:
       cdp-tenant:

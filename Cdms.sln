@@ -83,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Analytics", "..\cdms-b
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cdms.Metrics", "..\cdms-backend\Cdms.Metrics\Cdms.Metrics.csproj", "{4C459357-B2E2-438D-AF32-E3805F149A3D}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Btms.Telemetry.Extensions", "..\btms-telemetry-extensions\Btms.Telemetry.Extensions.csproj", "{155CF203-1AA6-49E4-8AA5-17D1B3690579}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -263,6 +265,7 @@ Global
 		{A8661FF9-1D4A-4356-82A7-7423F216FAC4} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 		{151F620A-F224-4977-B4C3-A9831C03A70F} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 		{4C459357-B2E2-438D-AF32-E3805F149A3D} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
+		{155CF203-1AA6-49E4-8AA5-17D1B3690579} = {55EEF0FB-0961-4D10-BD11-ED2337221BF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E9ECA82-73FF-4728-8332-4EF7710F84C7}
