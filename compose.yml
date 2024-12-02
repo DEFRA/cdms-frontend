@@ -64,9 +64,9 @@ services:
 
   grafana:
     build:
-      context: "../cdms-tracing"
+      context: "../btms-telemetry-extensions"
     ports:
-      - '8085:8085'
+      - '9000:8085'
     restart: always
     networks:
       cdp-tenant:
