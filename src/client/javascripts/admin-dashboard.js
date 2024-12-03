@@ -18,6 +18,8 @@ import {
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import 'chartjs-adapter-date-fns'
 import annotationPlugin from 'chartjs-plugin-annotation';
+import { Interaction } from 'chart.js';
+import { getRelativePosition } from 'chart.js/helpers';
 
 import axios from 'axios'
 
@@ -131,6 +133,18 @@ function createImportNotificationsLinkingByArrival(data) {
   )
 }
 
+function logCanvasDimensions(elementId, canvas) {
+
+  let width = canvas.getBoundingClientRect().width
+  let height = canvas.getBoundingClientRect().height
+
+  console.log('Canvas %s width=%s, height=%s', elementId, width, height)
+}
+
+function noData(elementId, canvas, title) {
+  console.log('No data for %s', elementId)
+}
+
 /**
  * @param {string} elementId
  * @param {string} title
@@ -146,7 +160,12 @@ function createLineChart(
   data
 ) {
 
+  var canvas = document.getElementById(elementId)
+  logCanvasDimensions(elementId, canvas)
+
   if (!(data && data.length)) {
+    noData(elementId, canvas, title)
+
     return
   }
 
@@ -195,9 +214,13 @@ function createLineChart(
     }
   })
 }
+
 function createStatusDoughnut(elementId, period, title, data) {
 
+  var canvas = document.getElementById(elementId)
+  logCanvasDimensions(elementId, canvas)
   if (!data) {
+    noData(elementId, canvas, title)
     return
   }
 
@@ -215,7 +238,7 @@ function createStatusDoughnut(elementId, period, title, data) {
   var sum = Object.values(data).reduce((a, b) => a + b, 0)
 
   /* eslint-disable no-new */ // @ts-expect-error: code from chart.js
-  new Chart(document.getElementById(elementId), {
+  new Chart(canvas, {
     type: 'doughnut',
     data: chartData,
     plugins: [ChartDataLabels],
@@ -223,9 +246,34 @@ function createStatusDoughnut(elementId, period, title, data) {
       maintainAspectRatio: false,
       responsive: true,
 
+      // hover: {
+      //   mode: 'nearest',
+      //   intersect: false,
+      //   onHover: function (e, item) {
+      //     console.log('onhover', item)
+      //     if (item.length) {
+      //       const data = item[0]._chart.config.data.datasets[0].data[item[0]._index];
+      //       console.log(item, data);
+      //     }
+      //   }
+      // },
       plugins: {
+        legend: {
+          // display: false
+          position: 'left',
+        },
+        tooltip: {
+          enabled: true,
+          callbacks: {
+            footer: (tooltipItem)=>{ console.log(tooltipItem)},
+          },
+        },
         datalabels: {
           color: '#ffffff',
+          // font: {
+          //   size: 5
+          // },
+          // 'font.size' : 5,
           formatter: function(value, context) {
             return value.toLocaleString()
           }

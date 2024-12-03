@@ -71,7 +71,7 @@ export const config = convict({
     apiUrl: {
       doc: 'The Trade Data Matching json:api backend.',
       format: String,
-      default: 'http://cdms-backend.localtest.me:5000',
+      default: 'http://cdms-backend.localtest.me:5002',
       env: 'CORE_BACKEND_API_URL'
     },
     exampleNotification: {
