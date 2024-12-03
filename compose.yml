@@ -66,12 +66,24 @@ services:
     build:
       context: "../btms-telemetry-extensions"
     ports:
-      - '9000:8085'
+      - '9000:8085' # Nginx single port proxy
+      - '9001:3000' # Grafana UI direct for local testing only
+      - '9318:4318' # OpenTelemetry Collector for local testing only
+      - '9090:9090' # Prometheus direct for local testing only
+    volumes:
+      - "./compose/prometheus.yml:/otel-lgtm/prometheus.yaml:rw"
     restart: always
     networks:
       cdp-tenant:
         aliases:
           - grafana.localtest.me
+
+#  prometheus:
+#    image: prom/prometheus
+#    ports:
+#      - '9090:9090'
+#    volumes:
+#      - "./compose/prometheus.yml:/etc/prometheus/prometheus.yml"
 
   aspire-dashboard:
     image: mcr.microsoft.com/dotnet/nightly/aspire-dashboard:8.2
