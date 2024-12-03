@@ -39,14 +39,14 @@ Chart.register(
 )
 
 const colourMap = {
-  'Cveda Linked': 'rgb(128,0,128)',
-  'Cveda Not Linked': 'rgb(218,112,214)',
-  'Ced Linked': 'rgb(0,0,255)',
-  'Ced Not Linked': 'rgb(0,191,255)',
-  'Cvedp Linked': 'rgb(139,69,19)',
-  'Cvedp Not Linked': 'rgb(244,164,96)',
-  'Cvedpp Linked': 'rgb(0,255,0)',
-  'Cvedpp Not Linked': 'rgb(173,255,47)',
+  'CHEDA Linked': 'rgb(128,0,128)',
+  'CHEDA Not Linked': 'rgb(218,112,214)',
+  'CHEDD Linked': 'rgb(0,0,255)',
+  'CHEDD Not Linked': 'rgb(0,191,255)',
+  'CHEDP Linked': 'rgb(139,69,19)',
+  'CHEDP Not Linked': 'rgb(244,164,96)',
+  'CHEDPP Linked': 'rgb(0,255,0)',
+  'CHEDPP Not Linked': 'rgb(173,255,47)',
   'Linked': 'rgb(128,128,128)',
   'Not Linked': 'rgb(224,224,224)',
 }
